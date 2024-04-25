@@ -8,10 +8,18 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView3"
+        android:layout_width="407dp"
+        android:layout_height="714dp"
+        app:srcCompat="@drawable/download__1_"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="135dp" />
+        android:text="Button"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="354dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
