@@ -11,52 +11,32 @@
         android:id="@+id/imageView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/download__1_"
+        app:srcCompat="@drawable/LandingPageBG"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
-    <TextView
-        android:id="@+id/textView7"
+    <ImageView
+        android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:textColor="#0127FB"
-        android:textSize="60sp"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="70dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PAGE"
-        android:textColor="#042AFB"
-        android:textSize="60sp"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="159dp" />
+        app:srcCompat="@drawable/welcometochronolog"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="282dp" />
+        android:text="Sign in"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="478dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="243dp"
-        tools:layout_editor_absoluteY="282dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="412dp" />
+        android:text="Register"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="542dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
