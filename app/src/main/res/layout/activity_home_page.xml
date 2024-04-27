@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/landingpagebg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/welcometochronolog"
@@ -24,7 +24,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSigninHomepg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign in"
@@ -32,7 +32,7 @@
         tools:layout_editor_absoluteY="478dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnRegisterHomepg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"

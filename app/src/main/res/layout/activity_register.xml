@@ -33,7 +33,7 @@
         tools:layout_editor_absoluteX="302dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/Registerbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/registerbg"
@@ -57,24 +57,24 @@
         android:layout_height="0dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="63dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEnter"
-        app:layout_constraintEnd_toEndOf="@+id/txtConPass2"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="@+id/txtConPass"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
         app:srcCompat="@drawable/icons8_password_50" />
 
     <EditText
-        android:id="@+id/txtPass3"
+        android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="368dp"
         android:ems="10"
         android:inputType="text"
         android:text="Password"
-        app:layout_constraintStart_toStartOf="@+id/txtEmail2"
+        app:layout_constraintStart_toStartOf="@+id/txtEmail"
         app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
     <Button
-        android:id="@+id/btnEnter"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="156dp"
@@ -93,25 +93,25 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="38dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView13"
-        app:layout_constraintEnd_toEndOf="@+id/txtPass3"
+        app:layout_constraintEnd_toEndOf="@+id/txtPassword"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/imageView11"
         app:srcCompat="@drawable/icons8_password_50" />
 
     <EditText
-        android:id="@+id/txtConPass2"
+        android:id="@+id/txtConPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="text"
         android:text="Confirm Password"
-        app:layout_constraintStart_toStartOf="@+id/txtPass3"
+        app:layout_constraintStart_toStartOf="@+id/txtPassword"
         app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
     <EditText
-        android:id="@+id/txtEmail2"
+        android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
