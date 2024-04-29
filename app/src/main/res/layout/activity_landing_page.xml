@@ -5,40 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    android:background="@drawable/bg"
+    tools:context=".HomePage"
+    android:background="@drawable/welcometochronolog"
     >
 
-    <EditText
-        android:id="@+id/edtLoginEmail"
+    <ImageView
+        android:id="@+id/imageView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="35dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/edtLoginPassword"
-        app:layout_constraintStart_toStartOf="@+id/edtLoginPassword" />
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <Button
-        android:id="@+id/BtnSignin"
+        android:id="@+id/btnSigninHomepg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="16dp"
         android:text="Sign in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
+        app:layout_constraintBottom_toTopOf="@+id/btnRegisterHomepg"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegisterHomepg" />
 
-    <EditText
-        android:id="@+id/edtLoginPassword"
+    <Button
+        android:id="@+id/btnRegisterHomepg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="245dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Password"
+        android:layout_marginBottom="141dp"
+        android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
