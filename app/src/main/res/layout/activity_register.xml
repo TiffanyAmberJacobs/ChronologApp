@@ -5,121 +5,115 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:background="@drawable/bg"
+    >
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/download__1_" />
+         />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
-        app:srcCompat="@drawable/icons8_user_30"
-        tools:layout_editor_absoluteX="302dp" />
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8_user_30" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:srcCompat="@drawable/icons8_email_30"
-        tools:layout_editor_absoluteX="302dp" />
-
-    <ImageView
-        android:id="@+id/Registerbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/registerbg"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8_email_30" />
 
     <EditText
         android:id="@+id/txtUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="19dp"
         android:ems="10"
         android:inputType="text"
         android:text="Username"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        tools:layout_editor_absoluteX="100dp" />
+        app:layout_constraintBottom_toTopOf="@+id/txtConPass"
+        app:layout_constraintEnd_toEndOf="@+id/imageView13" />
 
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="32dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="63dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        android:layout_height="213dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtConPass"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons8_password_50" />
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
+        android:layout_marginBottom="51dp"
         android:ems="10"
         android:inputType="text"
         android:text="Password"
-        app:layout_constraintStart_toStartOf="@+id/txtEmail"
-        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+        app:layout_constraintStart_toStartOf="@+id/txtConPass" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="156dp"
+        android:layout_marginTop="42dp"
         android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="0dp"
+        android:layout_width="34dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView13"
-        app:layout_constraintEnd_toEndOf="@+id/txtPassword"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView13"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icons8_password_50" />
 
     <EditText
         android:id="@+id/txtConPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:inputType="text"
         android:text="Confirm Password"
-        app:layout_constraintStart_toStartOf="@+id/txtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="440dp"
         android:ems="10"
         android:inputType="text"
         android:text="Email"
-        app:layout_constraintStart_toStartOf="@+id/txtUsername"
-        app:layout_constraintTop_toTopOf="@+id/imageView11" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+        app:layout_constraintStart_toStartOf="@+id/txtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,42 +5,42 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
-
-    <ImageView
-        android:id="@+id/loginbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/loginpage"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+    tools:context=".Login"
+    android:background="@drawable/bg"
+    >
 
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="35dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="Email"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="361dp" />
+        app:layout_constraintBottom_toTopOf="@+id/loginPassword"
+        app:layout_constraintStart_toStartOf="@+id/loginPassword" />
 
     <Button
         android:id="@+id/BtnSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
         android:text="Sign in"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="524dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 
     <EditText
         android:id="@+id/loginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="245dp"
         android:ems="10"
         android:inputType="text"
         android:text="Password"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="441dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
