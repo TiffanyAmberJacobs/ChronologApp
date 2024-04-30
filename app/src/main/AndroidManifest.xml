@@ -19,9 +19,6 @@
             android:name=".AddTask"
             android:exported="false" />
         <activity
-            android:name=".AddNewCategory"
-            android:exported="false" />
-        <activity
             android:name=".SetGoal"
             android:exported="false" />
         <activity
