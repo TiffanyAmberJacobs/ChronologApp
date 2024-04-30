@@ -14,29 +14,37 @@ import android.widget.Toast
 import java.util.Calendar
 
 class AddTask : AppCompatActivity(), View.OnClickListener {
+    val arrTimeSheet = ArrayList<timeSheet>()
 
     private lateinit var btnDatePicker: Button
     private lateinit var btnStartTimePicker: Button
     private lateinit var btnEndTimePicker: Button
+    private lateinit var btnAddSheet : Button
     private lateinit var txtStartTime: EditText
     private lateinit var txtEndTime: EditText
     private lateinit var txtDate: EditText
+    private lateinit var txtDescription : EditText
     private var mYear: Int = 0
     private var mMonth: Int = 0
     private var mDay: Int = 0
     private var mHour: Int = 0
     private var mMinute: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_add_timesheet)
 
+        txtDescription = findViewById(R.id.txtDescription)
         btnDatePicker = findViewById(R.id.btn_date)
         btnStartTimePicker = findViewById(R.id.btn_start_time)
         btnEndTimePicker = findViewById(R.id.btn_end_time)
         txtDate = findViewById(R.id.in_date)
         txtStartTime = findViewById(R.id.in_start_time)
         txtEndTime = findViewById(R.id.in_end_time)
+
+        val btnAdd: Button = findViewById(R.id.btnAddSheet)
+
 
         btnDatePicker.setOnClickListener(this)
         btnStartTimePicker.setOnClickListener(this)
@@ -66,6 +74,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
                 DatePickerDialog(this, { _, year, monthOfYear, dayOfMonth ->
                     txtDate.setText("$dayOfMonth-${monthOfYear + 1}-$year")
                 }, mYear, mMonth, mDay).show()
+
             }
             R.id.btn_start_time -> {
                 TimePickerDialog(this, { _, hourOfDay, minute ->
@@ -76,15 +85,25 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
                 TimePickerDialog(this, { _, hourOfDay, minute ->
                     if (isValidEndTime(hourOfDay, minute)) {
                         txtEndTime.setText("$hourOfDay:$minute")
+
                     } else {
                         // Show a message to the user that the end time must be later than the start time
                         Toast.makeText(this, "End time must be later than start time", Toast.LENGTH_SHORT).show()
                     }
                 }, mHour, mMinute, false).show()
+
             }
+
+            R.id.btnAddSheet -> {
+                arrTimeSheet.add(timeSheet(txtDate.text.toString().toInt(), txtStartTime.text.toString().toInt(),
+                    txtEndTime.text.toString().toInt(), txtDescription.text.toString()))
+            }
+
         }
 
     }
+
+
     private fun isValidEndTime(hourOfDay: Int, minute: Int): Boolean {
         val startTime = txtStartTime.text.toString().split(":")
         val endTime = "$hourOfDay:$minute"
