@@ -19,7 +19,7 @@ class CategoryPage : AppCompatActivity() {
     private lateinit var categoryContainer: LinearLayout
     private lateinit var categoryNameInput: EditText
     private lateinit var addCategoryButton: Button
-
+    val arrCategory = ArrayList<Category>()
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             enableEdgeToEdge()
@@ -39,15 +39,16 @@ class CategoryPage : AppCompatActivity() {
                 val categoryName = categoryNameInput.text.toString()
                 if (categoryName.isNotEmpty()) {
                     addCategory(categoryName)
-                    categoryNameInput.text.clear() // Clear the input field
-                }
+                    categoryNameInput.text.clear()
+                    arrCategory.add(Category(categoryName))
+                    }
             }
         }
 
         private fun addCategory(name: String) {
             val categoryView = TextView(this).apply {
                 text = name
-                // Set other properties like textSize, textColor, etc.
+
             }
             categoryContainer.addView(categoryView)
         }
