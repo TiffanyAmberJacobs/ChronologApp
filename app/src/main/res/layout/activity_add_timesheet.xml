@@ -16,6 +16,7 @@
         tools:layout_editor_absoluteX="233dp"
         tools:layout_editor_absoluteY="954dp" />
 
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -24,8 +25,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="26dp" />
-
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
         android:id="@+id/txtDescription"
@@ -35,30 +35,30 @@
         android:inputType="text"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="114dp" />
+        tools:layout_editor_absoluteY="56dp" />
 
     <Button
         android:id="@+id/btnAddSheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="52dp"
         android:text="Enter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.684"
-        app:layout_constraintStart_toEndOf="@+id/timeImage" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <DatePicker
-        android:id="@+id/datePicker1"
-        android:layout_width="265dp"
-        android:layout_height="149dp"
+        android:id="@+id/date"
+        android:layout_width="228dp"
+        android:layout_height="91dp"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="199dp" />
+        tools:layout_editor_absoluteY="112dp" />
 
     <TimePicker
         android:id="@+id/timeStart"
@@ -68,30 +68,38 @@
         android:timePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="376dp" />
+        tools:layout_editor_absoluteY="210dp" />
 
     <TimePicker
         android:id="@+id/timeEnd"
-        android:layout_width="209dp"
-        android:layout_height="69dp"
+        android:layout_width="229dp"
+        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="368dp"
         android:timePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/timeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="224dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnAddCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Catagory"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="548dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
