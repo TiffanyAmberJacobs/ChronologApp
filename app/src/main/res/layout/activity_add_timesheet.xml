@@ -11,95 +11,125 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="36dp"
         android:text="SELECT IMAGE:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="954dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="16dp"
         android:text="VIEW TASK DETAILS"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="@+id/txtDescription"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:text="Description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="56dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/btnAddSheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="16dp"
         android:text="Enter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <DatePicker
-        android:id="@+id/date"
-        android:layout_width="228dp"
-        android:layout_height="91dp"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="112dp" />
-
-    <TimePicker
-        android:id="@+id/timeStart"
-        android:layout_width="229dp"
-        android:layout_height="72dp"
-        android:layout_centerHorizontal="true"
-        android:timePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="210dp" />
-
-    <TimePicker
-        android:id="@+id/timeEnd"
-        android:layout_width="229dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="368dp"
-        android:timePickerMode="spinner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/btnAddCat" />
 
     <ImageView
         android:id="@+id/timeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="224dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddCat"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddCat"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnAddCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="Add Catagory"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="548dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnAddSheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Select Date"
+        app:layout_constraintEnd_toEndOf="@+id/in_date"
+        app:layout_constraintStart_toStartOf="@+id/in_date"
+        app:layout_constraintTop_toBottomOf="@+id/in_date" />
+
+    <Button
+        android:id="@+id/btn_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="7dp"
+        android:text="Select Start Time"
+        app:layout_constraintStart_toStartOf="@+id/in_start_time"
+        app:layout_constraintTop_toBottomOf="@+id/in_start_time" />
+
+    <Button
+        android:id="@+id/btn_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="29dp"
+        android:text="Select End Time"
+        app:layout_constraintEnd_toEndOf="@+id/in_end_time"
+        app:layout_constraintTop_toBottomOf="@+id/in_end_time" />
+
+    <EditText
+        android:id="@+id/in_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="3dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/txtDescription"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+
+    <EditText
+        android:id="@+id/in_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/in_date"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date" />
+
+    <EditText
+        android:id="@+id/in_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/in_start_time"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_time" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
