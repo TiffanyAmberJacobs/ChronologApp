@@ -10,7 +10,7 @@
     >
 
     <EditText
-        android:id="@+id/loginEmail"
+        android:id="@+id/txtLoginUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -18,8 +18,8 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/loginPassword"
-        app:layout_constraintStart_toStartOf="@+id/loginPassword" />
+        app:layout_constraintBottom_toTopOf="@+id/txtloginPassword"
+        app:layout_constraintStart_toStartOf="@+id/txtloginPassword" />
 
     <Button
         android:id="@+id/BtnSignin"
@@ -29,10 +29,10 @@
         android:text="Sign in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtloginPassword" />
 
     <EditText
-        android:id="@+id/loginPassword"
+        android:id="@+id/txtloginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="245dp"

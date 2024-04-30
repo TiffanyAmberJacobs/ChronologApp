@@ -22,23 +22,14 @@
             android:name=".AddNewCategory"
             android:exported="false" />
         <activity
-            android:name=".NewCategory"
-            android:exported="false" />
-        <activity
-            android:name=".MainPage"
-            android:exported="false" />
-        <activity
             android:name=".SetGoal"
             android:exported="false" />
         <activity
             android:name=".CategoryPage"
             android:exported="false" />
-        <activity
-            android:name=".activity_main_page"
-            android:exported="false" />
-        <activity
-            android:name=".HomePage"
-            android:exported="false" />
+      <activity
+          android:name=".MainActivity"
+          android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -52,7 +43,7 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomePage"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
