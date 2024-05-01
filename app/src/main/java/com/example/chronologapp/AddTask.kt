@@ -1,5 +1,6 @@
 package com.example.chronologapp
 
+import ImageAdapter
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,12 +11,16 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Build
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.GridView
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
@@ -52,6 +57,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
 
 
+
         btnDatePicker.setOnClickListener(this)
         btnStartTimePicker.setOnClickListener(this)
         btnEndTimePicker.setOnClickListener(this)
@@ -75,12 +81,17 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         btnAddSheet.setOnClickListener {
             val selectedCategory = categorySpinner.selectedItem.toString()
             arrTimeSheet.add(timeSheet(txtDate.text.toString().toInt(), txtStartTime.text.toString().toInt(),
-                txtEndTime.text.toString().toInt(), txtDescription.text.toString(), selectedCategory))
+                txtEndTime.text.toString().toInt(), txtDescription.text.toString(), selectedCategory, R.id.selectedImage ))
 
             Toast.makeText(this, "Timesheet Added", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+
+        val btnSelectImage: Button = findViewById(R.id.btnImageSelection)
+        btnSelectImage.setOnClickListener {
+            showImageSelectionDialog()
         }
 
 
@@ -130,4 +141,39 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         val endTime = "$hourOfDay:$minute"
         return endTime > startTime.joinToString(":")
     }
+
+    private fun showImageSelectionDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.image_selection, null)
+        val gridViewImages = dialogView.findViewById<GridView>(R.id.gridViewImages)
+        val imageIds = arrayOf(R.drawable.checked, R.drawable.close, R.drawable.fork,
+            R.drawable.internet)
+
+        val adapter = ImageAdapter(this, imageIds)
+
+        gridViewImages.adapter = adapter
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setTitle("Select an Image")
+            .setPositiveButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+
+        dialog.show()
+
+
+        gridViewImages.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+
+            val selectedImageID = imageIds[position]
+
+            val selectedImageView = findViewById<ImageView>(R.id.selectedImage)
+            selectedImageView.setImageResource(selectedImageID)
+
+            dialog.dismiss()
+        }
+
+
+    }
+
 }
