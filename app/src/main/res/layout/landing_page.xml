@@ -5,38 +5,34 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage"
-    android:background="@drawable/welcometochronolog"
-    >
+    tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:srcCompat="@drawable/welcometochronolog" />
 
     <Button
-        android:id="@+id/btnSigninHomepg"
+        android:id="@+id/btnReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="16dp"
-        android:text="Sign in"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegisterHomepg"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegisterHomepg" />
-
-    <Button
-        android:id="@+id/btnRegisterHomepg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="141dp"
-        android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="21dp"
+        android:text="REGISTER"
+        app:layout_constraintBottom_toTopOf="@+id/btnSign"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="138dp"
+        android:text="SIGN IN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnReg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

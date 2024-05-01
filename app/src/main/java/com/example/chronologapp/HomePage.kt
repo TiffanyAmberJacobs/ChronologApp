@@ -7,24 +7,22 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.chronologapp.databinding.ActivityLoginBinding
-import com.example.chronologapp.databinding.ActivityRegisterBinding
 
 class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_landing_page)
+        setContentView(R.layout.landing_page)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val btnRegister:Button = findViewById(R.id.btnRegisterHomepg)
-        val btnLogin: Button = findViewById(R.id.btnSigninHomepg)
+        val btnRegister:Button = findViewById(R.id.btnReg)
+        val btnLogin: Button = findViewById(R.id.btnSign)
 
 
-
+//User clicks on Register button should take user to register page
         btnRegister.setOnClickListener {
 
 
@@ -32,7 +30,7 @@ class HomePage : AppCompatActivity() {
         startActivity(intent)
 
         }
-
+// User clicks on Login button it should take user to login page
         btnLogin.setOnClickListener {
 
 
