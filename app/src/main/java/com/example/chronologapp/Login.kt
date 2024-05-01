@@ -36,7 +36,7 @@ class Login : AppCompatActivity() {
 
                     Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
                     found = true
-                    val intent = Intent(this,AddTask::class.java)
+                    val intent = Intent(this,MainActivity::class.java)
                     startActivity(intent)
                 break
                 }

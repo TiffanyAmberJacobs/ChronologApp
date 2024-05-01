@@ -7,19 +7,25 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
+import android.os.Build
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
 class AddTask : AppCompatActivity(), View.OnClickListener {
-    val arrTimeSheet = ArrayList<timeSheet>()
+    private val arrTimeSheet = ArrayList<timeSheet>()
 
     private lateinit var btnDatePicker: Button
     private lateinit var btnStartTimePicker: Button
     private lateinit var btnEndTimePicker: Button
-    private lateinit var btnAddSheet : Button
     private lateinit var txtStartTime: EditText
     private lateinit var txtEndTime: EditText
     private lateinit var txtDate: EditText
@@ -43,12 +49,17 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         txtStartTime = findViewById(R.id.in_start_time)
         txtEndTime = findViewById(R.id.in_end_time)
 
-        val btnAdd: Button = findViewById(R.id.btnAddSheet)
+
 
 
         btnDatePicker.setOnClickListener(this)
         btnStartTimePicker.setOnClickListener(this)
         btnEndTimePicker.setOnClickListener(this)
+
+        val categorySpinner = findViewById<Spinner>(R.id.spnCategory)
+        val categories = AppData.categories.map { it.name }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
+        categorySpinner.adapter = adapter
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -56,6 +67,20 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
 
+        }
+
+        val btnAddSheet: Button = findViewById(R.id.btnAddSheet)
+
+
+        btnAddSheet.setOnClickListener {
+            val selectedCategory = categorySpinner.selectedItem.toString()
+            arrTimeSheet.add(timeSheet(txtDate.text.toString().toInt(), txtStartTime.text.toString().toInt(),
+                txtEndTime.text.toString().toInt(), txtDescription.text.toString(), selectedCategory))
+
+            Toast.makeText(this, "Timesheet Added", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
 
@@ -68,6 +93,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         mDay = c.get(Calendar.DAY_OF_MONTH)
         mHour = c.get(Calendar.HOUR_OF_DAY)
         mMinute = c.get(Calendar.MINUTE)
+
 
         when (v.id) {
             R.id.btn_date -> {
@@ -94,15 +120,10 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
             }
 
-            R.id.btnAddSheet -> {
-                arrTimeSheet.add(timeSheet(txtDate.text.toString().toInt(), txtStartTime.text.toString().toInt(),
-                    txtEndTime.text.toString().toInt(), txtDescription.text.toString()))
-            }
 
         }
 
-    }
-
+        }
 
     private fun isValidEndTime(hourOfDay: Int, minute: Int): Boolean {
         val startTime = txtStartTime.text.toString().split(":")

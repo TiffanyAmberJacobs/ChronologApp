@@ -1,5 +1,6 @@
 package com.example.chronologapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -40,8 +41,16 @@ class CategoryPage : AppCompatActivity() {
                 if (categoryName.isNotEmpty()) {
                     addCategory(categoryName)
                     categoryNameInput.text.clear()
-                    arrCategory.add(Category(categoryName))
-                    }
+                    AppData.categories.add(Category(categoryName))
+                }
+
+                val btnBack: Button = findViewById(R.id.btnBack)
+
+
+                btnBack.setOnClickListener {
+                    val intent = Intent(this, MainActivity ::class.java)
+                    startActivity(intent)
+                }
             }
         }
 

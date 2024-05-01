@@ -9,34 +9,60 @@
     tools:context=".MainPage">
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="152dp"
-        android:layout_height="43dp"
+        android:id="@+id/btnAddCat"
+        android:layout_width="157dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="242dp"
+        android:layout_marginBottom="24dp"
         android:text="Create Category"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="228dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnAddTask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="221dp"
-        android:layout_height="109dp"
+        android:layout_width="148dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="34dp"
         android:text="Set Goal"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="484dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddTask" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="227dp"
-        android:layout_height="109dp"
+        android:layout_width="147dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="40dp"
         android:text="Daily Goal"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="606dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnViewTasks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
 
     <Button
         android:id="@+id/btnAddTask"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="29dp"
+        android:text="Add Timesheet"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="@+id/button8"
+        app:layout_constraintStart_toStartOf="@+id/btnViewTasks"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddCat" />
+
+    <Button
+        android:id="@+id/btnViewTasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Timesheet"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="341dp" />
+        android:layout_marginBottom="137dp"
+        android:text="View Timesheets"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

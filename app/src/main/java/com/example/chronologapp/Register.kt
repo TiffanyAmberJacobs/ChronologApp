@@ -29,6 +29,7 @@ class Register : AppCompatActivity() {
         var conPassword: EditText = findViewById(R.id.txtConPass)
         val btnReg: Button = findViewById(R.id.btnRegister)
 
+        arrUser.add(User("user","user"))
 
 
 

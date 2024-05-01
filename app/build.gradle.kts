@@ -7,6 +7,7 @@ android {
     namespace = "com.example.chronologapp"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.chronologapp"
         minSdk = 24
@@ -27,6 +28,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled  = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -57,5 +59,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
 }
