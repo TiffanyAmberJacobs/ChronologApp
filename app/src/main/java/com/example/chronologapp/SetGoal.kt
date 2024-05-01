@@ -3,20 +3,31 @@ package com.example.chronologapp
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TimePicker
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.chronologapp.AppData.Companion.dailyGoal
+
 import java.util.Calendar
 
-class SetGoal : AppCompatActivity(),  View.OnClickListener {
-    var arrHours = ArrayList<hourGoals>()
-    private var mHour: Int = 0
-    private var mMinute: Int = 0
+class SetGoal : AppCompatActivity(),TimePickerDialog.OnTimeSetListener {
 
+      private var minHour = 0
+      private var minMinute = 0
+    private var maxHour = 0
+    private var maxMinute = 0
+    private var SavedMinHour = 0
+    private var SavedMinMinutes = 0
+    private var SavedMaxHour = 0
+    private var SavedMaxMinutes = 0
     private lateinit var txtMaxHours: EditText
     private lateinit var txtMinHours: EditText
+    var isMinTimePicker = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,37 +39,88 @@ class SetGoal : AppCompatActivity(),  View.OnClickListener {
             insets
 
 
-
         }
-        txtMaxHours = findViewById(R.id.max)
-        txtMinHours = findViewById(R.id.min)
+         txtMinHours = findViewById(R.id.min)
+        txtMaxHours= findViewById(R.id.max)
+         val btnSetGoal:Button = findViewById(R.id.btnSetGoal)
+        pickTime()
 
-        // Correctly set the OnClickListener for txtMinHours and txtMaxHours
-        txtMinHours.setOnClickListener(this)
-        txtMaxHours.setOnClickListener(this)
+btnSetGoal.setOnClickListener {
+    val minHourStr = txtMinHours.text.toString().trim()
+    val maxHourStr = txtMaxHours.text.toString().trim()
+
+    if (minHourStr.isNotEmpty() && maxHourStr.isNotEmpty()) {
+        val minHour = minHourStr.split(":")[0].toIntOrNull()
+        val minMinute = minHourStr.split(":")[1].toIntOrNull()
+        val maxHour = maxHourStr.split(":")[0].toIntOrNull()
+        val maxMinute = maxHourStr.split(":")[1].toIntOrNull()
+
+        if (minHour!= null && minMinute!= null && maxHour!= null && maxMinute!= null) {
+            dailyGoal.add(hourGoals(minHour, minMinute, maxHour, maxMinute))
+        }
+    } else {
+        Toast.makeText(this, "Both fields are required.", Toast.LENGTH_SHORT).show()
+    }
+    for(i in dailyGoal.indices){
+        val goal = dailyGoal[i]
+        Toast.makeText(this, "Start Time: ${goal.maxHours} ${goal.maxMinutes}, End Time: ${goal.minHours}${goal.minMinutes}", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onClick(v: View) {
-        val c = Calendar.getInstance()
 
-        mHour = c.get(Calendar.HOUR_OF_DAY)
-        mMinute = c.get(Calendar.MINUTE)
 
-        when (v.id) {
-            R.id.min -> {
-                TimePickerDialog(this, { _, hourOfDay, minute ->
-                    txtMinHours.setText("$hourOfDay:$minute")
-                }, mHour, mMinute, false).show()
+}
+
+
+
+
             }
 
-            R.id.max -> {
-                TimePickerDialog(this, { _, hourOfDay, minute ->
-                    txtMaxHours.setText("$hourOfDay:$minute")
-                }, mHour, mMinute, false).show()
-            }
+  private fun getTimeCalendar() {
+
+         val c = Calendar.getInstance()
+         minHour = c.get(Calendar.HOUR_OF_DAY)
+         minMinute = c.get(Calendar.MINUTE)
+      maxHour = c.get(Calendar.HOUR_OF_DAY)
+      maxMinute = c.get(Calendar.MINUTE)
+     }
+
+    private fun pickTime() {
+        getTimeCalendar()
+        txtMinHours.setOnClickListener {
+            TimePickerDialog(this, this, minHour, minMinute, true).show()
+            isMinTimePicker = true
         }
-        // This line might cause issues if the EditTexts are empty or not properly formatted
-        // Consider adding validation or handling for empty or invalid inputs
-        arrHours.add(hourGoals(txtMinHours.text.toString().toInt(), txtMaxHours.text.toString().toInt()))
+        txtMaxHours.setOnClickListener {
+            TimePickerDialog(this, this, maxHour, maxMinute, true).show()
+            isMinTimePicker = false
+        }
     }
+
+    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+        if (isMinTimePicker) {
+            SavedMinHour = hourOfDay
+            SavedMinMinutes = minute
+            txtMinHours.setText("$SavedMinHour:$SavedMinMinutes")
+        } else {
+            SavedMaxHour = hourOfDay
+            SavedMaxMinutes = minute
+            txtMaxHours.setText("$SavedMaxHour:$SavedMaxMinutes")
+        }
+        isMinTimePicker =!isMinTimePicker
     }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

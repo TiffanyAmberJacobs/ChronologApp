@@ -4,5 +4,6 @@ class AppData {
     companion object {
         var categories: ArrayList<Category> = ArrayList()
         var timesheets : ArrayList<timeSheet> = ArrayList()
+        var dailyGoal : ArrayList<hourGoals> = ArrayList()
     }
 }
