@@ -88,6 +88,13 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+        val btnBackTimesheet: Button = findViewById(R.id.btnBackTimesheet)
+
+
+        btnBackTimesheet.setOnClickListener {
+            val intent = Intent(this, MainActivity ::class.java)
+            startActivity(intent)
+        }
 
         val btnSelectImage: Button = findViewById(R.id.btnImageSelection)
         btnSelectImage.setOnClickListener {

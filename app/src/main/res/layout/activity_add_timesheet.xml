@@ -11,9 +11,9 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/registerpage"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintStart_toStartOf="@+id/spnCategory"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/registerpage" />
 
     <TextView
         android:id="@+id/textView6"
@@ -54,31 +54,35 @@
         android:id="@+id/btnAddSheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
         android:text="Create Timesheet"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/selectedImage"
-        android:layout_width="195dp"
+        android:layout_width="0dp"
         android:layout_height="185dp"
+        android:layout_marginStart="79dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="3dp"
         android:src="@drawable/checked"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/btn_end_time"
+        app:layout_constraintEnd_toStartOf="@+id/btnImageSelection"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_end_time" />
 
     <Button
         android:id="@+id/btn_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
         android:text="Select Date"
-        app:layout_constraintEnd_toEndOf="@+id/in_date"
-        app:layout_constraintStart_toStartOf="@+id/in_date"
+        app:layout_constraintEnd_toStartOf="@+id/btnImageSelection"
+        app:layout_constraintStart_toStartOf="@+id/btn_end_time"
         app:layout_constraintTop_toBottomOf="@+id/in_date" />
 
     <Button
@@ -126,11 +130,11 @@
         android:id="@+id/in_end_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/in_start_time"
-        app:layout_constraintStart_toStartOf="@+id/in_start_time"
+        app:layout_constraintStart_toStartOf="@+id/selectedImage"
         app:layout_constraintTop_toBottomOf="@+id/btn_start_time" />
 
     <Spinner
@@ -139,20 +143,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddSheet"
+        app:layout_constraintBottom_toBottomOf="@+id/selectedImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedImage" />
 
     <Button
         android:id="@+id/btnImageSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="3dp"
         android:text="Select Image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/selectedImage"
-        tools:layout_editor_absoluteY="499dp" />
+        app:layout_constraintTop_toTopOf="@+id/selectedImage" />
 
+    <Button
+        android:id="@+id/btnBackTimesheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="4dp"
+        android:text="BACK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
