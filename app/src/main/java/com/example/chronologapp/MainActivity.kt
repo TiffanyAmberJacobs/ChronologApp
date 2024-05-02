@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+// User can clicks button if they want to add task
         val btnAddTask: Button = findViewById(R.id.btnAddTask)
 
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddTask ::class.java)
             startActivity(intent)
         }
-
+// User clicks button when they want to add category
         val btnAddCat: Button = findViewById(R.id.btnAddCat)
 
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CategoryPage ::class.java)
             startActivity(intent)
         }
-
+// If user wants to View Task
         val btnViewTask: Button = findViewById(R.id.btnViewTasks)
 
 

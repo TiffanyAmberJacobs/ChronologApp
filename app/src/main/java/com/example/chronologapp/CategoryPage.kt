@@ -35,7 +35,7 @@ class CategoryPage : AppCompatActivity() {
             categoryContainer = findViewById(R.id.categoryContainer)
             categoryNameInput = findViewById(R.id.txtCatName)
             addCategoryButton = findViewById(R.id.btnCreatecat)
-
+           //when user enters category, and clicks on button, it add category to scroll view and clears the editbox
             addCategoryButton.setOnClickListener {
                 val categoryName = categoryNameInput.text.toString()
                 if (categoryName.isNotEmpty()) {

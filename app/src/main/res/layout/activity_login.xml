@@ -5,42 +5,59 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
     android:background="@drawable/bg"
-    >
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loginpage" />
 
     <EditText
         android:id="@+id/txtLoginUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="324dp"
         android:ems="10"
+        android:hint="Username"
         android:inputType="textEmailAddress"
-        android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/txtloginPassword"
-        app:layout_constraintStart_toStartOf="@+id/txtloginPassword" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/BtnSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:text="Sign in"
+        android:layout_marginBottom="19dp"
+        android:text="SIGN IN"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtloginPassword" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txtloginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="245dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="2dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="Password"
+        android:hint="Password"
+        app:layout_constraintEnd_toEndOf="@+id/txtLoginUsername"
+        app:layout_constraintTop_toBottomOf="@+id/txtLoginUsername" />
+
+    <Button
+        android:id="@+id/btnBackLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="91dp"
+        android:text="BACK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/BtnSignin" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
