@@ -43,6 +43,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btnCatHours: Button = findViewById(R.id.btnCatHours)
+
+
+        btnCatHours.setOnClickListener {
+            val intent = Intent(this, TotalHours ::class.java)
+            startActivity(intent)
+        }
+
 
 
 

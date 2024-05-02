@@ -25,6 +25,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import com.example.chronologapp.AppData.Companion.arrTimeSheet
+import java.time.LocalTime
+
 class AddTask : AppCompatActivity(), View.OnClickListener {
 
 
@@ -75,18 +77,46 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
         }
 
-        val btnAddSheet: Button = findViewById(R.id.btnAddSheet)
+
+            val btnAddSheet: Button = findViewById(R.id.btnAddSheet)
 
 
-        btnAddSheet.setOnClickListener {
-            val selectedCategory = categorySpinner.selectedItem.toString()
-            arrTimeSheet.add(timeSheet(txtDate.text.toString().toInt(), txtStartTime.text.toString().toInt(),
-                txtEndTime.text.toString().toInt(), txtDescription.text.toString(), selectedCategory, R.id.selectedImage ))
+            btnAddSheet.setOnClickListener {
+                val selectedCategory = categorySpinner.selectedItem.toString()
 
-            Toast.makeText(this, "Timesheet Added", Toast.LENGTH_SHORT).show()
+                // Check if date, start time, and end time fields are not empty
+                if (txtDate.text.isEmpty() || txtStartTime.text.isEmpty() || txtEndTime.text.isEmpty()) {
+                    Toast.makeText(this, "Please fill in all required fields", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+                val dateFormatter = DateTimeFormatter.ofPattern("d-M-yyyy")
+                val parsedDate = LocalDate.parse(txtDate.text.toString(), dateFormatter)
+
+                val timeFormatter = DateTimeFormatter.ofPattern("HH:mm")
+                val parsedStartTime = LocalTime.parse(txtStartTime.text.toString(), timeFormatter)
+
+                val parsedEndTime = LocalTime.parse(txtEndTime.text.toString(), timeFormatter)
+
+                if (parsedStartTime.isAfter(parsedEndTime)) {
+                    Toast.makeText(this, "Start time cannot be later than end time", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                // Check if end time is not earlier than start time
+                if (parsedEndTime.isBefore(parsedStartTime)) {
+                    Toast.makeText(this, "End time cannot be earlier than start time", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+
+                arrTimeSheet.add(timeSheet(parsedDate, parsedStartTime,
+                    parsedEndTime, txtDescription.text.toString(), selectedCategory, R.id.selectedImage))
+
+                Toast.makeText(this, "Timesheet Added", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
         }
         val btnBackTimesheet: Button = findViewById(R.id.btnBackTimesheet)
 

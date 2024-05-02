@@ -102,12 +102,11 @@ class ViewTask : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
         isMinTimePicker =!isMinTimePicker
     }
 
-    fun filterTimesheets(start: LocalDate, end: LocalDate): List<timeSheet> {
-        return arrTimeSheet.filter { it.date >= start && it.date <= end }
+    //fun filterTimesheets(start: LocalDate, end: LocalDate): List<timeSheet> {
+       // return arrTimeSheet.filter { it.date >= start && it.date <= end }
     }
 
 
 
 
 
-}
