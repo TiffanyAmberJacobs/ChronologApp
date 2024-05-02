@@ -43,6 +43,8 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
     private var mHour: Int = 0
     private var mMinute: Int = 0
 
+    private var selectedImageID: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -55,9 +57,6 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         txtDate = findViewById(R.id.in_date)
         txtStartTime = findViewById(R.id.in_start_time)
         txtEndTime = findViewById(R.id.in_end_time)
-
-
-
 
 
         btnDatePicker.setOnClickListener(this)
@@ -111,7 +110,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
 
                 arrTimeSheet.add(timeSheet(parsedDate, parsedStartTime,
-                    parsedEndTime, txtDescription.text.toString(), selectedCategory, R.id.selectedImage))
+                    parsedEndTime, txtDescription.text.toString(), selectedCategory, selectedImageID))
 
                 Toast.makeText(this, "Timesheet Added", Toast.LENGTH_SHORT).show()
 
@@ -202,10 +201,10 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
         gridViewImages.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
 
-            val selectedImageID = imageIds[position]
+            selectedImageID = imageIds[position]
 
             val selectedImageView = findViewById<ImageView>(R.id.selectedImage)
-            selectedImageView.setImageResource(selectedImageID)
+            selectedImageView.setImageResource(selectedImageID!!)
 
             dialog.dismiss()
         }
