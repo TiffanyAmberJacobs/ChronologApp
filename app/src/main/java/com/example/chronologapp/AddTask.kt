@@ -24,9 +24,9 @@ import androidx.appcompat.app.AlertDialog
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
-
+import com.example.chronologapp.AppData.Companion.arrTimeSheet
 class AddTask : AppCompatActivity(), View.OnClickListener {
-    private val arrTimeSheet = ArrayList<timeSheet>()
+
 
     private lateinit var btnDatePicker: Button
     private lateinit var btnStartTimePicker: Button
