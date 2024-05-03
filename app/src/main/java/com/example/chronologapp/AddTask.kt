@@ -30,12 +30,17 @@ import java.util.Calendar
 import com.example.chronologapp.AppData.Companion.arrTimeSheet
 import java.time.LocalTime
 import android.Manifest
+import android.util.Base64
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 class AddTask : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         private const val CAMERA_REQUEST_CODE = 100
         private const val PERMISSIONS_REQUEST_CODE = 101
+        private const val WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 102
     }
 
 
@@ -52,7 +57,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
     private var mHour: Int = 0
     private var mMinute: Int = 0
 
-    private var selectedImageID: Int? = null
+    private var selectedImageData: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,27 +65,29 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_add_timesheet)
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED) {
             // Permission is not granted
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.CAMERA)) {
+                    Manifest.permission.CAMERA) ||
+                ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
             } else {
-                // No explanation needed; request the permission
+                // No explanation needed; request the permissions
                 ActivityCompat.requestPermissions(this,
-                    arrayOf(Manifest.permission.CAMERA),
+                    arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     PERMISSIONS_REQUEST_CODE)
-
-                // MY_PERMISSIONS_REQUEST_CAMERA is an
-                // app-defined int constant. The callback method gets the
-                // result of the request.
             }
         } else {
-            // Permission has already been granted
+            // Permissions have already been granted
         }
+
+
 
         txtDescription = findViewById(R.id.txtDescription)
         btnDatePicker = findViewById(R.id.btn_date)
@@ -150,7 +157,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
             arrTimeSheet.add(
                 timeSheet(
                     parsedDate, parsedStartTime,
-                    parsedEndTime, txtDescription.text.toString(), selectedCategory, selectedImageID
+                    parsedEndTime, txtDescription.text.toString(), selectedCategory, selectedImageData
                 )
             )
 
@@ -226,8 +233,22 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             val selectedImageView = findViewById<ImageView>(R.id.selectedImage)
             selectedImageView.setImageBitmap(imageBitmap)
-            // Save the image to a file or upload it to a server
-            // For simplicity, we're not handling the image saving here
+
+            savePhotoToExternalStorage(imageBitmap)
+        }
+    }
+
+    private fun savePhoto(imageBitmap: Bitmap) {
+        val fileName = "photo_${System.currentTimeMillis()}.png"
+        val file = File(getExternalFilesDir(null), fileName)
+        try {
+            val outStream = FileOutputStream(file)
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream)
+            outStream.flush()
+            outStream.close()
+            selectedImageData = file.absolutePath
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -262,11 +283,10 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
         gridViewImages.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
 
-            selectedImageID = imageIds[position]
+            selectedImageData = imageIds[position].toString()
 
             val selectedImageView = findViewById<ImageView>(R.id.selectedImage)
-            selectedImageView.setImageResource(selectedImageID!!)
-
+            selectedImageView.setImageResource(imageIds[position])
             dialog.dismiss()
         }
 
@@ -284,6 +304,23 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+    }
+
+    private var isRequestingWriteExternalStoragePermission = false
+
+    private fun savePhotoToExternalStorage(imageBitmap: Bitmap) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted, request it
+
+            isRequestingWriteExternalStoragePermission = true
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                WRITE_EXTERNAL_STORAGE_REQUEST_CODE)
+        } else {
+            // Permission has already been granted, proceed with saving the photo
+            savePhoto(imageBitmap)
+        }
     }
 
     private fun startCameraIntent() {

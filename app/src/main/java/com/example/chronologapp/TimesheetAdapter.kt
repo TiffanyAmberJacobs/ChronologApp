@@ -1,12 +1,12 @@
 package com.example.chronologapp
 
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chronologapp.AppData.Companion.arrTimeSheet
+import java.io.File
 
 class TimesheetAdapter(private val timesheets: List<timeSheet>) : RecyclerView.Adapter<TimesheetViewHolder>() {
 
@@ -23,13 +23,23 @@ class TimesheetAdapter(private val timesheets: List<timeSheet>) : RecyclerView.A
         holder.txtDescription.text = timesheet.description
         holder.txtCategory.text = timesheet.category
 
-        timesheet.imageURL?.let { loadImage(holder.imgTimesheet, it) }
+        val imageFile = timesheet.imageURL?.let { File(it) }
+        if (imageFile != null) {
+            if (imageFile.exists()) {
+                val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+                holder.imgTimesheet.setImageBitmap(bitmap)
+            } else {
+                // Handle the case where the image file does not exist
+                holder.imgTimesheet.setImageResource(R.drawable.checked)
+            }
+        }
     }
-
     override fun getItemCount(): Int {
         return timesheets.size
     }
 
-    private fun loadImage(imageView: ImageView, imageResourceId: Int) =
-        imageView.setImageResource(imageResourceId)
+
+
+
+
 }
