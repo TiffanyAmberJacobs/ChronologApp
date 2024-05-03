@@ -151,13 +151,13 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_start_time -> {
                 TimePickerDialog(this, { _, hourOfDay, minute ->
-                    txtStartTime.setText("$hourOfDay:$minute")
+                    txtStartTime.setText(String.format("%02d:%02d", hourOfDay, minute))
                 }, mHour, mMinute, true).show()
             }
             R.id.btn_end_time -> {
                 TimePickerDialog(this, { _, hourOfDay, minute->
                     if (isValidEndTime(hourOfDay, minute)) {
-                        txtEndTime.setText("$hourOfDay:$minute")
+                        txtEndTime.setText(String.format("%02d:%02d", hourOfDay, minute))
 
                     } else {
                         // Show a message to the user that the end time must be later than the start time

@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val btnAddTask: Button = findViewById(R.id.btnAddTask)
 
 
+
         btnAddTask.setOnClickListener {
             val intent = Intent(this, AddTask ::class.java)
             startActivity(intent)
