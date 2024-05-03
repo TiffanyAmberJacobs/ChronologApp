@@ -18,7 +18,8 @@ class TimesheetAdapter(private val timesheets: List<timeSheet>) : RecyclerView.A
     override fun onBindViewHolder(holder: TimesheetViewHolder, position: Int) {
         val timesheet = timesheets[position]
         holder.txtDate.text = timesheet.date.toString()
-        holder.txtStartTime.text = timesheet.startTime.toString()
+        holder.txtStartTime.text = timesheet.startTime.toString()                     // Attributed from : https://www.youtube.com/watch?v=UbP8E6I91NA
+                                                                                        // Author : Foxandroid
         holder.txtEndTime.text = timesheet.endTime.toString()
         holder.txtDescription.text = timesheet.description
         holder.txtCategory.text = timesheet.category

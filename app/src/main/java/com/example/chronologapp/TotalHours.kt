@@ -19,7 +19,7 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.Duration
 
-class TotalHours : AppCompatActivity(), View.OnClickListener {
+class TotalHours : AppCompatActivity(), View.OnClickListener {  // listener to see which buttons are clicked
 
     private lateinit var txtStartDate: EditText
     private lateinit var txtEndDate: EditText

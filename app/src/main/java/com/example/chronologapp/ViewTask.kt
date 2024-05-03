@@ -55,7 +55,7 @@ class ViewTask : AppCompatActivity(), View.OnClickListener {
 
         DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDayOfMonth ->
             val newSelectedDate = LocalDate.of(selectedYear, selectedMonth + 1, selectedDayOfMonth)
-            if (editText.id == R.id.txtStartdate) {
+            if (editText.id == R.id.txtStartdate) {                                                          // shows the datepicker dialog  and sets the text while formatting  it to specific pattern
                 startDate = newSelectedDate
             } else {
                 endDate = newSelectedDate
@@ -74,7 +74,7 @@ class ViewTask : AppCompatActivity(), View.OnClickListener {
             timesheet.date.isAfter(startDate!!.minusDays(1)) && timesheet.date.isBefore(endDate!!.plusDays(1))
         }
 
-        // Assuming you have a TimesheetAdapter that takes a list of timesheets and displays them in the RecyclerView
+        // takes list of timesheets and shows it in the recycler view
         val adapter = TimesheetAdapter(filteredTimesheets)
         recyclerView.adapter = adapter
     }

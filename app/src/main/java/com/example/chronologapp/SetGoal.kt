@@ -22,7 +22,7 @@ class SetGoal : AppCompatActivity(),TimePickerDialog.OnTimeSetListener {
       private var minMinute = 0
     private var maxHour = 0
     private var maxMinute = 0
-    private var SavedMinHour = 0
+    private var SavedMinHour = 0    //assigning variables to GUI and placeholder variables to save the minutes
     private var SavedMinMinutes = 0
     private var SavedMaxHour = 0
     private var SavedMaxMinutes = 0
@@ -52,7 +52,7 @@ btnSetGoal.setOnClickListener {
 
     if (minHourStr.isNotEmpty() && maxHourStr.isNotEmpty()) {
         val minHour = minHourStr.split(":")[0].toIntOrNull()
-        val minMinute = minHourStr.split(":")[1].toIntOrNull()
+        val minMinute = minHourStr.split(":")[1].toIntOrNull()   // Splits the time correctly to let it save into the variables  and make it parsable
         val maxHour = maxHourStr.split(":")[0].toIntOrNull()
         val maxMinute = maxHourStr.split(":")[1].toIntOrNull()
 
@@ -89,7 +89,7 @@ btnSetGoal.setOnClickListener {
 
          val c = Calendar.getInstance()
          minHour = c.get(Calendar.HOUR_OF_DAY)
-         minMinute = c.get(Calendar.MINUTE)
+         minMinute = c.get(Calendar.MINUTE)  // gets specific time or date
       maxHour = c.get(Calendar.HOUR_OF_DAY)
       maxMinute = c.get(Calendar.MINUTE)
      }
@@ -97,7 +97,7 @@ btnSetGoal.setOnClickListener {
     private fun pickTime() {
         getTimeCalendar()
         txtMinHours.setOnClickListener {
-            TimePickerDialog(this, this, minHour, minMinute, true).show()
+            TimePickerDialog(this, this, minHour, minMinute, true).show()  // gets the calender and assign it correctly  while displaying it to the user
             isMinTimePicker = true
         }
         txtMaxHours.setOnClickListener {
@@ -110,7 +110,7 @@ btnSetGoal.setOnClickListener {
         if (isMinTimePicker) {
             SavedMinHour = hourOfDay
             SavedMinMinutes = minute
-            txtMinHours.setText("$SavedMinHour:$SavedMinMinutes")
+            txtMinHours.setText("$SavedMinHour:$SavedMinMinutes")  //sets the text to the saved Hours and minutes
         } else {
             SavedMaxHour = hourOfDay
             SavedMaxMinutes = minute

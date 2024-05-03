@@ -27,39 +27,23 @@ class Register : AppCompatActivity() {
 
         var username: EditText = findViewById(R.id.txtUsername)
         var password: EditText = findViewById(R.id.txtPassword)
-        var conPassword: EditText = findViewById(R.id.txtConPass)
+        var conPassword: EditText = findViewById(R.id.txtConPass)   // assigning text fields and buttons to variables
         val btnReg: Button = findViewById(R.id.btnRegister)
         val btnBackReg: Button = findViewById(R.id.btnBackReg)
-// Adding User Information to array called arrUser
 
 
 
 
-        // to check if reg info is correct
 
 
 
-        // adding User Information to Array if password and Confirm password are the same and if not show error message
+
+
+
         btnReg.setOnClickListener {
 
-            val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*])(?=\\S+$).{8,}$"
-
-            // Check if password is valid
-            if (!password.text.toString().toRegex().matches(passwordRegex)) {
-                Toast.makeText(this, "Password must be at least 8 characters long and contain a mix of numbers, capitals, and special characters.", Toast.LENGTH_SHORT).show()
-
-            }
-
-            val emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
-
-            // Check if username is a valid email
-            if (!username.text.toString().toRegex().matches(emailRegex)) {
-                Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
-
-            }
 
 
-            // if password and confirm password is the same and all information is the same then it will take user to landing page
             arrUser.add(User(username.text.toString(), password.text.toString()))
             if (password.text.toString() == conPassword.text.toString() && username.text.toString()
                     .isNotEmpty()

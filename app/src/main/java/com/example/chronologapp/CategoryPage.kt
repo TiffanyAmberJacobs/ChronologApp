@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 class CategoryPage : AppCompatActivity() {
 
     private lateinit var scrollView: ScrollView
-    private lateinit var categoryContainer: LinearLayout
+    private lateinit var categoryContainer: LinearLayout // assigning  variables to GUI
     private lateinit var categoryNameInput: EditText
     private lateinit var addCategoryButton: Button
 
@@ -34,7 +34,7 @@ class CategoryPage : AppCompatActivity() {
 
             scrollView = findViewById(R.id.scrollView)
             categoryContainer = findViewById(R.id.categoryContainer)
-            categoryNameInput = findViewById(R.id.txtCatName)
+            categoryNameInput = findViewById(R.id.txtCatName)  //assigning  variables to GUI
             addCategoryButton = findViewById(R.id.btnCreatecat)
            //when user enters category, and clicks on button, it add category to scroll view and clears the editbox
             addCategoryButton.setOnClickListener {
@@ -51,7 +51,7 @@ class CategoryPage : AppCompatActivity() {
 
 
             btnback.setOnClickListener {
-                val intent = Intent(this, MainActivity ::class.java)
+                val intent = Intent(this, MainActivity ::class.java)   // backButton
                 startActivity(intent)
             }
 
@@ -59,7 +59,7 @@ class CategoryPage : AppCompatActivity() {
 
         private fun addCategory(name: String) {
             val categoryView = TextView(this).apply {
-                text = name
+                text = name                                        // Adds a Category function
 
             }
             categoryContainer.addView(categoryView)
