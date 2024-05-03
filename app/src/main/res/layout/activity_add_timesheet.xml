@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".AddTask">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/spnCategory"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/registerpage" />
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -47,6 +39,7 @@
         android:hint="Enter Description of task"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -69,7 +62,7 @@
         android:layout_marginEnd="3dp"
         android:src="@drawable/checked"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/btnImageSelection"
+        app:layout_constraintEnd_toStartOf="@+id/btnSelectImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_end_time" />
 
@@ -78,11 +71,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:text="Select Date"
-        app:layout_constraintEnd_toStartOf="@+id/btnImageSelection"
-        app:layout_constraintStart_toStartOf="@+id/btn_end_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSelectImage"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/in_date" />
 
     <Button
@@ -113,7 +108,9 @@
         android:layout_marginEnd="3dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/txtDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
     <EditText
@@ -123,7 +120,9 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/in_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_date" />
 
     <EditText
@@ -134,7 +133,9 @@
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/selectedImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_start_time" />
 
     <Spinner
@@ -149,10 +150,10 @@
         app:layout_constraintTop_toBottomOf="@+id/selectedImage" />
 
     <Button
-        android:id="@+id/btnImageSelection"
+        android:id="@+id/btnSelectImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="3dp"
         android:text="Select Image"
         app:layout_constraintEnd_toEndOf="parent"

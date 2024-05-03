@@ -101,8 +101,6 @@ class TotalHours : AppCompatActivity(), View.OnClickListener {
         }
 
         lblCalcTotalHours.text = "Total hours spent on $selectedCategory between $startDate and $endDate:"
-        lblHoursNumber.text = "$totalHours"
-
-        //Toast.makeText(this, "Total hours spent on $selectedCategory: $totalHours", Toast.LENGTH_SHORT).show()
+        lblHoursNumber.text = "$totalHours hours"
     }
 }

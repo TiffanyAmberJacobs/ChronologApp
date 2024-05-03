@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.chronologapp.AppData.Companion.categories
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         }
 // User can clicks button if they want to add task
         val btnAddTask: Button = findViewById(R.id.btnAddTask)
-
-
 
         btnAddTask.setOnClickListener {
             val intent = Intent(this, AddTask ::class.java)
