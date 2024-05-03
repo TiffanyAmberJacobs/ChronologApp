@@ -8,10 +8,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.MimeTypeFilter.matches
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 var arrUser=ArrayList<User>()
-
+var foundReg = false
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +31,33 @@ class Register : AppCompatActivity() {
         val btnReg: Button = findViewById(R.id.btnRegister)
         val btnBackReg: Button = findViewById(R.id.btnBackReg)
 // Adding User Information to array called arrUser
-        arrUser.add(User("user", "user"))
+
+
+
+
         // to check if reg info is correct
-        var foundReg = false
+
 
 
         // adding User Information to Array if password and Confirm password are the same and if not show error message
         btnReg.setOnClickListener {
+
+            val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*])(?=\\S+$).{8,}$"
+
+            // Check if password is valid
+            if (!password.text.toString().toRegex().matches(passwordRegex)) {
+                Toast.makeText(this, "Password must be at least 8 characters long and contain a mix of numbers, capitals, and special characters.", Toast.LENGTH_SHORT).show()
+
+            }
+
+            val emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+
+            // Check if username is a valid email
+            if (!username.text.toString().toRegex().matches(emailRegex)) {
+                Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
+
+            }
+
 
             // if password and confirm password is the same and all information is the same then it will take user to landing page
             arrUser.add(User(username.text.toString(), password.text.toString()))

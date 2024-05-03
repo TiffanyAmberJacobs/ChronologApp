@@ -56,7 +56,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
     private var mDay: Int = 0
     private var mHour: Int = 0
     private var mMinute: Int = 0
-
+    private lateinit var btnBack:Button
     private var selectedImageData: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,9 +90,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
 
         txtDescription = findViewById(R.id.txtDescription)
-        btnDatePicker = findViewById(R.id.btn_date)
-        btnStartTimePicker = findViewById(R.id.btn_start_time)
-        btnEndTimePicker = findViewById(R.id.btn_end_time)
+
         txtDate = findViewById(R.id.in_date)
         txtStartTime = findViewById(R.id.in_start_time)
         txtEndTime = findViewById(R.id.in_end_time)
@@ -107,7 +105,13 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
         categorySpinner.adapter = adapter
 
+        btnBack.setOnClickListener {
 
+            val intent = Intent(this, MainActivity ::class.java)
+            startActivity(intent)
+
+
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -192,20 +196,20 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
 
 
         when (v.id) {
-            R.id.btn_date -> {
+            R.id.txtDate -> {
                 DatePickerDialog(this, { _, year, monthOfYear, dayOfMonth ->
                     txtDate.setText("$dayOfMonth-${monthOfYear + 1}-$year")
                 }, mYear, mMonth, mDay).show()
 
             }
 
-            R.id.btn_start_time -> {
+            R.id.txtStartTime-> {
                 TimePickerDialog(this, { _, hourOfDay, minute ->
                     txtStartTime.setText(String.format("%02d:%02d", hourOfDay, minute))
                 }, mHour, mMinute, true).show()
             }
 
-            R.id.btn_end_time -> {
+            R.id.txtEndTime -> {
                 TimePickerDialog(this, { _, hourOfDay, minute ->
                     if (isValidEndTime(hourOfDay, minute)) {
                         txtEndTime.setText(String.format("%02d:%02d", hourOfDay, minute))
@@ -239,7 +243,7 @@ class AddTask : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun savePhoto(imageBitmap: Bitmap) {
-        val fileName = "photo_${System.currentTimeMillis()}.png"
+        val fileName = "photo_${System.currentTimeMillis()}.jpg"
         val file = File(getExternalFilesDir(null), fileName)
         try {
             val outStream = FileOutputStream(file)

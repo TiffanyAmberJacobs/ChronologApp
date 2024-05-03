@@ -1,6 +1,7 @@
 package com.example.chronologapp
 
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -69,6 +70,15 @@ btnSetGoal.setOnClickListener {
 
 
 }
+
+        val btnBack:Button = findViewById(R.id.btnBackGoalTime)
+        btnBack.setOnClickListener {
+
+            val intent = Intent(this, MainActivity ::class.java)
+            startActivity(intent)
+
+
+        }
 
 
 

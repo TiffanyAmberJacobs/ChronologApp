@@ -3,10 +3,12 @@ package com.example.chronologapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.chronologapp.AppData.Companion.arrTimeSheet
 import com.example.chronologapp.AppData.Companion.categories
 
 class MainActivity : AppCompatActivity() {
@@ -37,20 +39,47 @@ class MainActivity : AppCompatActivity() {
 // If user wants to View Task
         val btnViewTask: Button = findViewById(R.id.btnViewTasks)
 
-
         btnViewTask.setOnClickListener {
-            val intent = Intent(this, ViewTask ::class.java)
-            startActivity(intent)
+
+
+
+            if(arrTimeSheet.isEmpty()){
+
+                Toast.makeText(this, "Please add at least one task to view them ", Toast.LENGTH_SHORT).show()
+            }else{
+                val intent = Intent(this, ViewTask ::class.java)
+                startActivity(intent)
+            }
+
         }
 
         val btnCatHours: Button = findViewById(R.id.btnCatHours)
 
 
         btnCatHours.setOnClickListener {
-            val intent = Intent(this, TotalHours ::class.java)
-            startActivity(intent)
+
+            if(categories.isEmpty()){
+
+                Toast.makeText(this, "Please add a category before before calculating ", Toast.LENGTH_SHORT).show()
+
+            }else{
+                val intent = Intent(this, TotalHours ::class.java)
+                startActivity(intent)
+
+
+            }
         }
 
+
+        val btnSetGoal:Button = findViewById(R.id.btnSetGoalMain)
+        btnSetGoal.setOnClickListener {
+
+            val intent = Intent(this, SetGoal ::class.java)
+            startActivity(intent)
+
+
+
+        }
 
 
 

@@ -11,164 +11,100 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="223dp"
-        android:layout_marginEnd="36dp"
         android:text="SELECT IMAGE:"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
+        tools:layout_editor_absoluteX="233dp"
+        tools:layout_editor_absoluteY="954dp" />
 
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="16dp"
         android:text="VIEW TASK DETAILS"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/txtDescription"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="Enter Description of task"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="79dp" />
 
     <Button
         android:id="@+id/btnAddSheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="4dp"
         android:text="Create Timesheet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="679dp" />
 
     <ImageView
         android:id="@+id/selectedImage"
-        android:layout_width="0dp"
-        android:layout_height="185dp"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="3dp"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
         android:src="@drawable/checked"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/btnSelectImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_end_time" />
-
-    <Button
-        android:id="@+id/btn_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:text="Select Date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSelectImage"
-        app:layout_constraintHorizontal_bias="0.93"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/in_date" />
-
-    <Button
-        android:id="@+id/btn_start_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="7dp"
-        android:text="Select Start Time"
-        app:layout_constraintStart_toStartOf="@+id/in_start_time"
-        app:layout_constraintTop_toBottomOf="@+id/in_start_time" />
-
-    <Button
-        android:id="@+id/btn_end_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="9dp"
-        android:text="Select End Time"
-        app:layout_constraintStart_toStartOf="@+id/in_end_time"
-        app:layout_constraintTop_toBottomOf="@+id/in_end_time" />
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="466dp" />
 
     <EditText
         android:id="@+id/in_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="3dp"
+        android:layout_width="224dp"
+        android:layout_height="47dp"
         android:ems="10"
+        android:hint="Doube Click To Select Date"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="160dp" />
 
     <EditText
         android:id="@+id/in_start_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="278dp"
+        android:layout_height="48dp"
         android:ems="10"
+        android:hint="Double Click to Select Start Time"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_date" />
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="249dp" />
 
     <EditText
         android:id="@+id/in_end_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="19dp"
+        android:layout_width="271dp"
+        android:layout_height="48dp"
         android:ems="10"
+        android:hint="Double Click to Select End Time"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start_time" />
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="366dp" />
 
     <Spinner
         android:id="@+id/spnCategory"
-        android:layout_width="0dp"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/selectedImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectedImage" />
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="613dp" />
 
     <Button
         android:id="@+id/btnSelectImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="3dp"
         android:text="Select Image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/selectedImage"
-        app:layout_constraintTop_toTopOf="@+id/selectedImage" />
+        tools:layout_editor_absoluteX="264dp"
+        tools:layout_editor_absoluteY="475dp" />
 
     <Button
         android:id="@+id/btnBackTimesheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="4dp"
         android:text="BACK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="679dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@
         android:layout_width="157dp"
         android:layout_height="0dp"
         android:layout_marginTop="242dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="22dp"
         android:text="Create Category"
         app:layout_constraintBottom_toTopOf="@+id/btnAddTask"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,26 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnSetGoalMain"
         android:layout_width="148dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="70dp"
         android:text="Set Goal"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddTask" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="147dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="40dp"
-        android:text="Daily Goal"
         app:layout_constraintBottom_toTopOf="@+id/btnViewTasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAddTask" />
 
     <Button
         android:id="@+id/btnAddTask"
@@ -48,10 +37,10 @@
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="77dp"
         android:text="Add Timesheet"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="@+id/button8"
+        app:layout_constraintBottom_toTopOf="@+id/btnSetGoalMain"
+        app:layout_constraintEnd_toEndOf="@+id/btnSetGoalMain"
         app:layout_constraintStart_toStartOf="@+id/btnAddCat"
         app:layout_constraintTop_toBottomOf="@+id/btnAddCat" />
 
@@ -64,7 +53,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnCatHours"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSetGoalMain" />
 
     <Button
         android:id="@+id/btnCatHours"

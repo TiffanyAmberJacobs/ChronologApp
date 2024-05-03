@@ -20,6 +20,7 @@ class CategoryPage : AppCompatActivity() {
     private lateinit var categoryContainer: LinearLayout
     private lateinit var categoryNameInput: EditText
     private lateinit var addCategoryButton: Button
+
     val arrCategory = ArrayList<Category>()
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -40,18 +41,20 @@ class CategoryPage : AppCompatActivity() {
                 val categoryName = categoryNameInput.text.toString()
                 if (categoryName.isNotEmpty()) {
                     addCategory(categoryName)
-                    categoryNameInput.text.clear()
+
                     AppData.categories.add(Category(categoryName))
                 }
 
-                val btnBack: Button = findViewById(R.id.btnBack)
 
-
-                btnBack.setOnClickListener {
-                    val intent = Intent(this, MainActivity ::class.java)
-                    startActivity(intent)
-                }
             }
+            val btnback: Button = findViewById(R.id.btnBack)
+
+
+            btnback.setOnClickListener {
+                val intent = Intent(this, MainActivity ::class.java)
+                startActivity(intent)
+            }
+
         }
 
         private fun addCategory(name: String) {
